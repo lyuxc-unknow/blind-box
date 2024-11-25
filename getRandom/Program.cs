@@ -1,4 +1,6 @@
-namespace getRandom
+using getRandom;
+
+namespace BlindBox
 {
     internal static class Program
     {
