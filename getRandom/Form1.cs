@@ -41,7 +41,6 @@ namespace getRandom
         {
             List<string> randomItemList = new List<string>();
             List<string> infoListCopy = new List<string>(infoList);
-            infoListCopy.Remove("³ÂµÇ¿­");
             if (ignoreList.Count > 0)
             {
                 foreach (var item in ignoreList)
