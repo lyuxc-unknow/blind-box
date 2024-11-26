@@ -117,50 +117,42 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="button1.ToolTip" xml:space="preserve">
-    <value />
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="button1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="finalListBox.ToolTip" xml:space="preserve">
-    <value />
+  <data name="finalListBox.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
   </data>
-  <data name="col.ToolTip" xml:space="preserve">
-    <value />
+  <data name="col.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="countInput.ToolTip" xml:space="preserve">
-    <value />
+  <data name="countInput.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="label1.ToolTip" xml:space="preserve">
-    <value />
+  <data name="button2.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="label2.ToolTip" xml:space="preserve">
-    <value />
+  <data name="ingoreInputTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
-  <data name="button2.ToolTip" xml:space="preserve">
-    <value />
+  <data name="button3.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="ingoreListBox.ToolTip" xml:space="preserve">
-    <value />
+  <data name="ingoreList2Input.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
-  <data name="button3.ToolTip" xml:space="preserve">
-    <value />
+  <data name="ingoreList2.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
-  <data name="label3.ToolTip" xml:space="preserve">
-    <value />
+  <data name="button4.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
-  <data name="ingoreList2.ToolTip" xml:space="preserve">
-    <value />
+  <data name="button5.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
-  <data name="button4.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="button5.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label4.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="button6.ToolTip" xml:space="preserve">
-    <value />
+  <data name="button6.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
@@ -242,8 +234,5 @@
         AP//////4ADgB+AAYAfgAAAH4AAAB+AAAAfgAAAH4AAAB+AAAAf/////4ABwg+AAcAPgAAAD4AAAA+AA
         AAPwAAAD8AAAB/AAAAf///////////////8=
 </value>
-  </data>
-  <data name="$this.ToolTip" xml:space="preserve">
-    <value />
   </data>
 </root>

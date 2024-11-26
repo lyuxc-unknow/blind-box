@@ -10,37 +10,43 @@ namespace getRandom
         public Form1()
         {
             InitializeComponent();
+            openFileDialog.Filter = "*.xlsx|*.xlsx";
+            openFileDialog.Multiselect = false;
+            openFileDialog.FilterIndex = 1;
         }
 
-        private static List<string> GetExcelInfo(string path, string columns)
+        private static List<string> getExcelInfo(string path, string columns)
         {
-            List<string> infoList_Pr = new List<string>();
-
+            List<string> privateInfoList = new List<string>();
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-            ExcelPackage package = new ExcelPackage(new FileInfo(path));
-            ExcelWorksheet sheet = package.Workbook.Worksheets[1];
 
-            int rowCount = sheet.Dimension.End.Row;
-            int columnCount = sheet.Dimension.End.Column;
-            for (int i = 1; i <= columnCount; i++)
+            using (ExcelPackage package = new ExcelPackage(new FileInfo(path)))
             {
-                if (sheet.Cells[1, i].ToText() == null) continue;
-                if (sheet.Cells[1, i].Text == columns)
+                ExcelWorksheet sheet = package.Workbook.Worksheets[1];
+                int rowCount = sheet.Dimension.End.Row;
+                int columnCount = sheet.Dimension.End.Column;
+                for (int i = 1; i <= columnCount; i++)
                 {
-                    for (int j = 2; j <= rowCount; j++)
+                    if (sheet.Cells[1, i].ToText() == null) continue;
+                    if (sheet.Cells[1, i].Text == columns)
                     {
-                        string value = sheet.Cells[j, i].Text;
-                        infoList_Pr.Add(value == null ? "" : value);
+                        for (int j = 2; j <= rowCount; j++)
+                        {
+                            string value = sheet.Cells[j, i].Text;
+                            privateInfoList.Add(value is null ? "" : value);
+                        }
                     }
                 }
             }
-            return infoList_Pr;
+            return privateInfoList;
         }
 
-        private static List<string> ItemByInfo(List<string> infoList, List<string> ignoreList, int count)
+        private static List<string> geitItemListByRandom(List<string> infoList, List<string> ignoreList, int count)
         {
             List<string> randomItemList = new List<string>();
             List<string> infoListCopy = new List<string>(infoList);
+            Random random = new Random();
+
             if (ignoreList.Count > 0)
             {
                 foreach (var item in ignoreList)
@@ -48,14 +54,14 @@ namespace getRandom
                     infoListCopy.Remove(item);
                 }
             }
-            Random random = new Random();
+
             for (int i = 0; i < count; i++)
             {
                 if (infoListCopy.Count > 0)
                 {
-                    int ra = random.Next(infoListCopy.Count);
-                    randomItemList.Add(infoListCopy[ra]);
-                    infoListCopy.RemoveAt(ra);
+                    int index = random.Next(infoListCopy.Count);
+                    randomItemList.Add(infoListCopy[index]);
+                    infoListCopy.RemoveAt(index);
                 }
             }
             return randomItemList;
@@ -79,15 +85,14 @@ namespace getRandom
             {
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    openFileDialog.Filter = ".xlsx|*.xlsx";
                     file_path = openFileDialog.FileName;
                     button1.Text = "≥È»°";
                 }
             }
             if (file_path != "")
             {
-                infoList = GetExcelInfo(file_path, col.Text);
-                randomItemList = ItemByInfo(infoList, ignoreItemList, int.Parse(countInput.Text));
+                infoList = getExcelInfo(file_path, col.Text);
+                randomItemList = geitItemListByRandom(infoList, ignoreItemList, int.Parse(countInput.Text));
                 finalListBox.Items.Clear();
                 foreach (var item in randomItemList)
                 {
